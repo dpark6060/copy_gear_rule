@@ -2,17 +2,18 @@ import flywheel
 import os
 from Template_Project import TemplateProject
 import logging
-
+from pathlib import Path
 logging.basicConfig(level="DEBUG")
 
 
 def main():
-    template_project_id = "63a49440e087afb85232ab00"
-    dest_project_id = "63751acb4d4fb3ab518cc50e"
+    BASE_DIR = Path(__file__).resolve().parents[1]
+    print(BASE_DIR)
+    template_project_id = "640a167feec1e8ab7317cf89"
+    dest_project_id = "64400ef073c2f0c4d5203349"
     api_key = os.environ["NACC_API"]
     client = flywheel.Client(api_key)
     project = client.get_project(template_project_id)
-
     template_project = TemplateProject(client, project)
 
     dest_project = client.get_project(dest_project_id)

@@ -22,6 +22,7 @@ class TemplateProject:
             self.copy_rule_to_project(rule.name, dest_project)
 
     def copy_rule_to_project(self, rule_name, dest_project):
+
         log.info(f"copying rule {rule_name}")
         rule = self.get_rule(rule_name)
         dest_files = self.handle_rule_files(rule, dest_project)
